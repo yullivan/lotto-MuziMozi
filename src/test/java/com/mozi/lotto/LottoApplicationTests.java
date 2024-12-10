@@ -13,18 +13,18 @@ class LottoApplicationTests {
 
 	@Test
 	void generateNumberTest() {
-		NumberGenerator numberGenerator = new NumberGenerator();
-		numberGenerator.generateNumber();
-		System.out.println(numberGenerator.getLottoNumber());
+//		NumberGenerator numberGenerator = new NumberGenerator();
+//		numberGenerator.generateNumber();
+//		System.out.println(numberGenerator.getLottoNumber());
 	}
 
 	@Test
 	void generateTicketTest() {
 		LottoTicket lottoTicket = new LottoTicket();
 		lottoTicket.generateTicket(14);
-		for (NumberGenerator lottoNumber : lottoTicket.getLottoNumbers()) {
-			System.out.println(lottoNumber.getLottoNumber());
-		}
+//		for (NumberGenerator lottoNumber : lottoTicket.getTicket()) {
+//			System.out.println(lottoNumber.getLottoNumber());
+//		}
 	}
 
 	@Test

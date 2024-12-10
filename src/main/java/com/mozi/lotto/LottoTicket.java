@@ -4,17 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LottoTicket {
-    private List<NumberGenerator> lottoNumbers = new ArrayList<>();
+    private List<LottoGame> ticket = new ArrayList<>();
 
-    public List<NumberGenerator> getLottoNumbers() {
-        return lottoNumbers;
+    public List<LottoGame> getTicket() {
+        return ticket;
     }
 
     public void generateTicket(int numberOfGames) {
         for (int i = 0; i < numberOfGames; i++) {
-            NumberGenerator numberGenerator = new NumberGenerator();
-            numberGenerator.generateNumber();
-            lottoNumbers.add(numberGenerator);
+            ticket.add(new LottoGame());
         }
     }
 }

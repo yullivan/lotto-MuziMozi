@@ -28,7 +28,7 @@ public class InputHandler {
         Scanner sc = new Scanner(System.in);
         while (true) {
             try {
-                System.out.print("지난 주 당첨 번호를 입력해 주세요. (1, 2, .. , 6): ");
+                System.out.println("지난 주 당첨 번호를 입력해 주세요. (1, 2, .. , 6): ");
                 String number = sc.nextLine();
                 List<Integer> numbers = Arrays.stream(number.split("\\s*,\\s*"))
                         .map(Integer::parseInt)
