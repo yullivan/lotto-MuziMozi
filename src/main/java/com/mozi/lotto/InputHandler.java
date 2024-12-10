@@ -4,9 +4,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputHandler {
-    private final Scanner sc = new Scanner(System.in);
+    private Scanner sc = new Scanner(System.in);
 
-    public int getValidatedAmount() {
+    public int getValidatedPay() {
         while (true) {
             try {
                 System.out.print("금액을 입력하세요: ");

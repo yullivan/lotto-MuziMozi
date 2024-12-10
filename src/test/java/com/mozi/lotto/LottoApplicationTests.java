@@ -1,7 +1,6 @@
 package com.mozi.lotto;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 class LottoApplicationTests {
 
@@ -16,7 +15,16 @@ class LottoApplicationTests {
 	void generateNumberTest() {
 		NumberGenerator numberGenerator = new NumberGenerator();
 		numberGenerator.generateNumber();
-		System.out.println(numberGenerator.lottoNumber);
+		System.out.println(numberGenerator.getLottoNumber());
+	}
+
+	@Test
+	void generateTicketTest() {
+		LottoTicket lottoTicket = new LottoTicket();
+		lottoTicket.generateTicket(14);
+		for (NumberGenerator lottoNumber : lottoTicket.getLottoNumbers()) {
+			System.out.println(lottoNumber.getLottoNumber());
+		}
 	}
 
 }

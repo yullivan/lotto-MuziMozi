@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class NumberGenerator {
-    List<Integer> lottoNumber = new ArrayList<>();
+    private List<Integer> lottoNumber = new ArrayList<>();
 
     public List<Integer> getLottoNumber() {
         return lottoNumber;

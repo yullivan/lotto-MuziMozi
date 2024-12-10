@@ -4,7 +4,7 @@ public class LottoMachine {
     private int pay;
 
     public void savePay(InputHandler inputHandler) {
-        this.pay = inputHandler.getValidatedAmount();
+        this.pay = inputHandler.getValidatedPay();
         System.out.println(this.pay / 1000 + "개를 구매했습니다.");
     }
 
