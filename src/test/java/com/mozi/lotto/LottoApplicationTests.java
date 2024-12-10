@@ -12,4 +12,11 @@ class LottoApplicationTests {
 		lottoMachine.savePay(inputHandler);
 	}
 
+	@Test
+	void generateNumberTest() {
+		NumberGenerator numberGenerator = new NumberGenerator();
+		numberGenerator.generateNumber();
+		System.out.println(numberGenerator.lottoNumber);
+	}
+
 }
