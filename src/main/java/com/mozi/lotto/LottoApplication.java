@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LottoApplication {
 
 	public static void main(String[] args) {
+		LottoMachine lottoMachine = new LottoMachine();
 		InputHandler inputHandler = new InputHandler();
-		inputHandler.savePay();
+		lottoMachine.savePay(inputHandler);
 	}
 
 }

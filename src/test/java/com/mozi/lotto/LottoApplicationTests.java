@@ -7,8 +7,9 @@ class LottoApplicationTests {
 
 	@Test
 	void savePayTest() {
+		LottoMachine lottoMachine = new LottoMachine();
 		InputHandler inputHandler = new InputHandler();
-		inputHandler.savePay();
+		lottoMachine.savePay(inputHandler);
 	}
 
 }
