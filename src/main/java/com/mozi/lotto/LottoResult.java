@@ -1,16 +1,23 @@
 package com.mozi.lotto;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class LottoResult {
-    private int countOfMatch;
-    private boolean matchBonus;
+    private HashMap<Integer, Integer> countOfRank;
     private double rateOfReturn;    // 수익률
 
-    public LottoResult(LottoTicket lottoTicket, List<Integer> winNumber) {
-
-    }
-    public Rank calculateRank(LottoTicket lottoTicket, LottoNumbers winNumber) {
+    public Rank calculateRank(LottoNumbers lottoNumbers, LottoNumbers winNumber, LottoNumber bonusNumber) {
+        int countOfMatch = 0;
+        boolean matchBonus = false;
+        for (LottoNumber number : winNumber.getNumbers()) {
+            if (lottoNumbers.getNumbers().contains(number)) {
+                countOfMatch++;
+            }
+            if (lottoNumbers.getNumbers().contains(bonusNumber)) {
+                matchBonus = true;
+            }
+        }
         return Rank.valueOf(countOfMatch, matchBonus);
     }
 }
