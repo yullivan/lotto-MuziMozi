@@ -24,19 +24,47 @@ public class InputHandler {
         }
     }
 
-    public static LottoNumbers getValidatedWinNumber() {
+    public static int getValidatedManulInputCount() {
         Scanner sc = new Scanner(System.in);
         while (true) {
             try {
-                System.out.println("지난 주 당첨 번호를 입력해 주세요. (1, 2, .. , 6): ");
-                String number = sc.nextLine();
-                List<Integer> tmpUserNumbers = Arrays.stream(number.split("\\s*,\\s*"))
-                        .map(Integer::parseInt)
-                        .distinct()
-                        .sorted()
-                        .toList();
+                System.out.print("수동으로 구매할 로또 수를 입력해 주세요.: ");
 
-                return new LottoNumbers(tmpUserNumbers);
+                return sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("잘못된 입력입니다! 숫자를 입력해주세요.");
+                sc.next(); // 잘못된 입력 소비
+            }
+        }
+    }
+
+    public static LottoNumbers getValidatedLottoNumber() {
+        Scanner sc = new Scanner(System.in);
+        String number = sc.nextLine();
+        List<Integer> tmpUserNumbers = Arrays.stream(number.split("\\s*,\\s*"))
+                .map(Integer::parseInt)
+                .distinct()
+                .sorted()
+                .toList();
+
+        return new LottoNumbers(tmpUserNumbers);
+    }
+
+    public static LottoNumbers getValidatedManualNumber() {
+        while (true) {
+            try {
+                return getValidatedLottoNumber();
+            } catch (NumberFormatException e) {
+                System.out.println("잘못된 형식입니다!");
+            }
+        }
+    }
+
+    public static LottoNumbers getValidatedWinNumber() {
+        while (true) {
+            try {
+                System.out.println("지난 주 당첨 번호를 입력해 주세요. (1, 2, .. , 6): ");
+                return getValidatedLottoNumber();
             } catch (NumberFormatException e) {
                 System.out.println("잘못된 형식입니다!");
             }
