@@ -6,7 +6,7 @@ import java.util.List;
 public class LottoMachine {
     private int pay;
     private int numberOfGames;
-    private List<Integer> winNumber = new ArrayList<>();
+    private LottoNumbers winNumber;
 
     public int getPay() {
         return pay;
@@ -14,7 +14,7 @@ public class LottoMachine {
     public int getNumberOfGames() {
         return numberOfGames;
     }
-    public List<Integer> getWinNumber() {
+    public LottoNumbers getWinNumber() {
         return winNumber;
     }
 

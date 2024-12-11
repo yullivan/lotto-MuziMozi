@@ -24,25 +24,21 @@ public class InputHandler {
         }
     }
 
-    public static List<Integer> getValidatedWinNumber() {
+    public static LottoNumbers getValidatedWinNumber() {
         Scanner sc = new Scanner(System.in);
         while (true) {
             try {
                 System.out.println("지난 주 당첨 번호를 입력해 주세요. (1, 2, .. , 6): ");
                 String number = sc.nextLine();
-                List<Integer> numbers = Arrays.stream(number.split("\\s*,\\s*"))
+                List<Integer> tmpUserNumbers = Arrays.stream(number.split("\\s*,\\s*"))
                         .map(Integer::parseInt)
                         .distinct()
                         .sorted()
                         .toList();
 
-                if (numbers.size() != 6 || numbers.stream().anyMatch(n -> n < 1 || n > 45)) {
-                    System.out.println("번호는 1~45 사이의 6개 숫자를 입력해야 합니다.");
-                } else {
-                    return numbers;
-                }
+                return new LottoNumbers(tmpUserNumbers);
             } catch (NumberFormatException e) {
-                System.out.println("잘못된 형식입니다! 번호는 숫자만 입력해야 합니다.");
+                System.out.println("잘못된 형식입니다!");
             }
         }
     }
