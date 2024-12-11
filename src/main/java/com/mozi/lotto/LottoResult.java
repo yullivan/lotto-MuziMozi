@@ -10,7 +10,7 @@ public class LottoResult {
     public LottoResult(LottoTicket lottoTicket, List<Integer> winNumber) {
 
     }
-    public Rank calculateRank(LottoTicket lottoTicket, List<Integer> winNumber) {
+    public Rank calculateRank(LottoTicket lottoTicket, LottoNumbers winNumber) {
         return Rank.valueOf(countOfMatch, matchBonus);
     }
 }

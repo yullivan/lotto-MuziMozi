@@ -42,4 +42,18 @@ public class InputHandler {
             }
         }
     }
+
+    public static LottoNumber getValidatedBonusNumber() {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            try {
+                System.out.println("보너스 번호를 입력해주세요.: ");
+                int number = sc.nextInt();
+                return new LottoNumber(number);
+            } catch (InputMismatchException e) {
+                System.out.println("잘못된 형식입니다!");
+                sc.next();
+            }
+        }
+    }
 }

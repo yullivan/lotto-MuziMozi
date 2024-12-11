@@ -32,4 +32,10 @@ class LottoApplicationTests {
 		lottoMachine.saveLastWeekLottoNumber();
 	}
 
+	@Test
+	void getValidatedBonusNumberTest() {
+		LottoNumber bonusNumber = InputHandler.getValidatedBonusNumber();
+		System.out.println(bonusNumber);
+	}
+
 }

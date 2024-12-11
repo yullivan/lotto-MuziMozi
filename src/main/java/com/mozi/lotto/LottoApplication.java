@@ -10,6 +10,11 @@ public class LottoApplication {
 		LottoTicket lottoTicket = lottoMachine.generateTicket();
 
 		OutputHandler.printLottoTicket(lottoTicket);
-		lottoMachine.saveLastWeekLottoNumber();
+
+		LottoNumbers winNumber = lottoMachine.saveWinNumber();
+		LottoNumber bonusNumber = lottoMachine.saveBonusNumber();
+
+		LottoGame lottoGame = new LottoGame(winNumber, bonusNumber);
+		System.out.println(lottoGame);
 	}
 }
