@@ -7,7 +7,6 @@ public class LottoMachine {
     private int pay;
     private int numberOfGames;
     private List<Integer> winNumber = new ArrayList<>();
-    private LottoTicket lottoTicket = new LottoTicket();
 
     public int getPay() {
         return pay;
@@ -17,10 +16,6 @@ public class LottoMachine {
     }
     public List<Integer> getWinNumber() {
         return winNumber;
-    }
-
-    public LottoTicket getLottoTicket() {
-        return lottoTicket;
     }
 
     public void savePurchaseInfo() {
@@ -33,9 +28,11 @@ public class LottoMachine {
         this.winNumber = InputHandler.getValidatedWinNumber();
     }
 
-    public void generateTicket() {
+    public LottoTicket generateTicket() {
+        LottoTicket lottoTicket = new LottoTicket();
         for (int i = 0; i < this.numberOfGames; i++) {
-            this.lottoTicket.getTicket().add(new LottoNumbers(NumberGenerator.generateNumber()));
+            lottoTicket.getTicket().add(new LottoNumbers(NumberGenerator.generateNumber()));
         }
+        return lottoTicket;
     }
 }
