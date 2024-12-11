@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class InputHandler {
 
-    public int getValidatedPurchase() {
+    public static int getValidatedPurchase() {
         Scanner sc = new Scanner(System.in);
         while (true) {
             try {
@@ -24,7 +24,7 @@ public class InputHandler {
         }
     }
 
-    public List<Integer> getValidatedWinNumber() {
+    public static List<Integer> getValidatedWinNumber() {
         Scanner sc = new Scanner(System.in);
         while (true) {
             try {

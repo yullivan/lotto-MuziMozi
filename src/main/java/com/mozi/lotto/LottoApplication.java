@@ -4,13 +4,14 @@ public class LottoApplication {
 
 	public static void main(String[] args) {
 		LottoMachine lottoMachine = new LottoMachine();
-		InputHandler inputHandler = new InputHandler();
-		OutputHandler outputHandler = new OutputHandler();
 
-		lottoMachine.savePurchaseInfo(inputHandler);
-//		lottoTicket.generateTicket(lottoMachine.getNumberOfGames());
+		lottoMachine.savePurchaseInfo();
 		lottoMachine.generateTicket();
-		outputHandler.printLottoTicket(lottoMachine.getLottoTicket());
-		lottoMachine.saveLastWeekLottoNumber(inputHandler);
+
+//		LottoTicket lottoTicket = new LottoTicket();
+//		lottoTicket = lottoMachine.generateTicket();
+
+		OutputHandler.printLottoTicket(lottoMachine.getLottoTicket());
+		lottoMachine.saveLastWeekLottoNumber();
 	}
 }

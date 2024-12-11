@@ -7,8 +7,7 @@ class LottoApplicationTests {
 	@Test
 	void savePayTest() {
 		LottoMachine lottoMachine = new LottoMachine();
-		InputHandler inputHandler = new InputHandler();
-		lottoMachine.savePurchaseInfo(inputHandler);
+		lottoMachine.savePurchaseInfo();
 	}
 
 	@Test
@@ -21,7 +20,7 @@ class LottoApplicationTests {
 	@Test
 	void generateTicketTest() {
 		LottoTicket lottoTicket = new LottoTicket();
-		lottoTicket.generateTicket(14);
+//		lottoTicket.generateTicket(14);
 //		for (NumberGenerator lottoNumber : lottoTicket.getTicket()) {
 //			System.out.println(lottoNumber.getLottoNumber());
 //		}
@@ -30,8 +29,7 @@ class LottoApplicationTests {
 	@Test
 	void saveLastWeekLottoNumberTest() {
 		LottoMachine lottoMachine = new LottoMachine();
-		InputHandler inputHandler = new InputHandler();
-		lottoMachine.saveLastWeekLottoNumber(inputHandler);
+		lottoMachine.saveLastWeekLottoNumber();
 	}
 
 }

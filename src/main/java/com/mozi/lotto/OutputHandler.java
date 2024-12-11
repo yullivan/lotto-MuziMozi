@@ -2,7 +2,7 @@ package com.mozi.lotto;
 
 public class OutputHandler {
 
-    public void printLottoTicket(LottoTicket lottoTicket) {
+    public static void printLottoTicket(LottoTicket lottoTicket) {
 //        for (LottoNumbers lottoNumbers : lottoTicket.getTicket()) {
 //            for (LottoNumber number : lottoNumbers.getNumbers()) {
 //                System.out.print(number.getNumber());

@@ -7,7 +7,7 @@ public class LottoMachine {
     private int pay;
     private int numberOfGames;
     private List<Integer> winNumber = new ArrayList<>();
-    private LottoTicket lottoTicket;
+    private LottoTicket lottoTicket = new LottoTicket();
 
     public int getPay() {
         return pay;
@@ -23,22 +23,22 @@ public class LottoMachine {
         return lottoTicket;
     }
 
-    public void savePurchaseInfo(InputHandler inputHandler) {
-        this.pay = inputHandler.getValidatedPurchase();
+    public void savePurchaseInfo() {
+        this.pay = InputHandler.getValidatedPurchase();
         this.numberOfGames = this.pay / 1000;
         System.out.println(this.numberOfGames + "개를 구매했습니다.");
     }
 
-    public void saveLastWeekLottoNumber(InputHandler inputHandler) {
-        this.winNumber = inputHandler.getValidatedWinNumber();
+    public void saveLastWeekLottoNumber() {
+        this.winNumber = InputHandler.getValidatedWinNumber();
 //        System.out.println("지난주 당첨 번호: " + this.winNumber);
     }
 
     public void generateTicket() {
-        LottoTicket lottoTicket = new LottoTicket();
+//        LottoTicket lottoTicket = new LottoTicket();
         for (int i = 0; i < this.numberOfGames; i++) {
-            lottoTicket.getTicket().add(new LottoNumbers(NumberGenerator.generateNumber()));
+            this.lottoTicket.getTicket().add(new LottoNumbers(NumberGenerator.generateNumber()));
         }
-        this.lottoTicket = lottoTicket;
+//        this.lottoTicket = lottoTicket;
     }
 }
