@@ -5,12 +5,6 @@ import org.junit.jupiter.api.Test;
 class LottoApplicationTests {
 
 	@Test
-	void savePayTest() {
-		LottoMachine lottoMachine = new LottoMachine();
-		lottoMachine.savePurchaseInfo();
-	}
-
-	@Test
 	void generateNumberTest() {
 //		NumberGenerator numberGenerator = new NumberGenerator();
 //		numberGenerator.generateNumber();
@@ -24,12 +18,6 @@ class LottoApplicationTests {
 //		for (NumberGenerator lottoNumber : lottoTicket.getTicket()) {
 //			System.out.println(lottoNumber.getLottoNumber());
 //		}
-	}
-
-	@Test
-	void saveLastWeekLottoNumberTest() {
-		LottoMachine lottoMachine = new LottoMachine();
-		lottoMachine.saveLastWeekLottoNumber();
 	}
 
 	@Test

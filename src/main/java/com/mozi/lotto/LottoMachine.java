@@ -4,17 +4,16 @@ public class LottoMachine {
     private int pay;
     private int numberOfGames;
 
+    public LottoMachine(int pay) {
+        this.pay = pay;
+        this.numberOfGames = pay / 1000;
+    }
+
     public int getPay() {
         return pay;
     }
     public int getNumberOfGames() {
         return numberOfGames;
-    }
-
-    public void savePurchaseInfo() {
-        this.pay = InputHandler.getValidatedPurchase();
-        this.numberOfGames = this.pay / 1000;
-        System.out.println(this.numberOfGames + "개를 구매했습니다.");
     }
 
     public LottoTicket generateTicket() {
