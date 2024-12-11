@@ -17,6 +17,6 @@ public class LottoApplication {
 
 		LottoResult lottoResult = new LottoResult(lottoTicket, lottoGame);
 
-		System.out.println(lottoResult.getCountOfRank().toString());
+		OutputHandler.printResult(lottoMachine, lottoResult);
 	}
 }

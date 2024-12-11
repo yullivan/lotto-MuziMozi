@@ -2,12 +2,12 @@ package com.mozi.lotto;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class LottoResult {
     private HashMap<Rank, Integer> countOfRank;
-    private int rewardMoney;
-    private double rateOfReturn;    // 수익률
+    private int rewardMoney;    // 당첨금
 
     public LottoResult(LottoTicket lottoTicket, LottoGame lottoGame) {
         HashMap<Rank, Integer> map = new HashMap<>();
@@ -16,6 +16,12 @@ public class LottoResult {
             map.put(rank, map.getOrDefault(rank, 0) + 1);
         }
         this.countOfRank = map;
+
+        int moneySum = 0;
+        for (Map.Entry<Rank, Integer> entry : map.entrySet()) {
+            moneySum += entry.getKey().getWinningMoney() * entry.getValue();
+        }
+        this.rewardMoney = moneySum;
     }
 
     public HashMap<Rank, Integer> getCountOfRank() {
@@ -24,10 +30,6 @@ public class LottoResult {
 
     public int getRewardMoney() {
         return rewardMoney;
-    }
-
-    public double getRateOfReturn() {
-        return rateOfReturn;
     }
 
     private Rank calculateRank(LottoNumbers lottoNumbers, LottoNumbers winNumber, LottoNumber bonusNumber) {
@@ -43,21 +45,17 @@ public class LottoResult {
         }
         return Rank.valueOf(countOfMatch, matchBonus);
     }
-    public void printResult() {
-
-    }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LottoResult that = (LottoResult) o;
-        return rewardMoney == that.rewardMoney && Double.compare(rateOfReturn, that.rateOfReturn) == 0 && Objects.equals(countOfRank, that.countOfRank);
+        return rewardMoney == that.rewardMoney && Objects.equals(countOfRank, that.countOfRank);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(countOfRank, rewardMoney, rateOfReturn);
+        return Objects.hash(countOfRank, rewardMoney);
     }
 
     @Override
@@ -65,7 +63,6 @@ public class LottoResult {
         return "LottoResult{" +
                 "countOfRank=" + countOfRank +
                 ", rewardMoney=" + rewardMoney +
-                ", rateOfReturn=" + rateOfReturn +
                 '}';
     }
 }

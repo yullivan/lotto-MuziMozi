@@ -31,4 +31,8 @@ public class LottoMachine {
     public LottoNumber saveBonusNumber() {
         return InputHandler.getValidatedBonusNumber();
     }
+
+    public double calculateRateOfReturn(LottoResult lottoResult) {
+        return (double) lottoResult.getRewardMoney() / this.pay;
+    }
 }
