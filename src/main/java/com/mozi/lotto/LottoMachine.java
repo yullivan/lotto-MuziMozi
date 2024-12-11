@@ -31,14 +31,11 @@ public class LottoMachine {
 
     public void saveLastWeekLottoNumber() {
         this.winNumber = InputHandler.getValidatedWinNumber();
-//        System.out.println("지난주 당첨 번호: " + this.winNumber);
     }
 
     public void generateTicket() {
-//        LottoTicket lottoTicket = new LottoTicket();
         for (int i = 0; i < this.numberOfGames; i++) {
             this.lottoTicket.getTicket().add(new LottoNumbers(NumberGenerator.generateNumber()));
         }
-//        this.lottoTicket = lottoTicket;
     }
 }
