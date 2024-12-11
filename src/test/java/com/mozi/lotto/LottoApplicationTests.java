@@ -46,7 +46,7 @@ class LottoApplicationTests {
 
 	@Test
 	void calculateRankTest() {
-		LottoNumbers lottoNumbers1 = new LottoNumbers(List.of(1,2,3,7,5,6));
+		LottoNumbers lottoNumbers1 = new LottoNumbers(List.of(1,2,3,4,8,6));
 		LottoNumbers lottoNumbers2 = new LottoNumbers(List.of(1,2,3,4,7,8));
 		LottoNumbers lottoNumbers3 = new LottoNumbers(List.of(1,2,3,4,8,11));
 		LottoNumbers winNumbers = new LottoNumbers(List.of(1,2,3,4,8,11));

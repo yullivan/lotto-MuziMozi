@@ -5,20 +5,20 @@ import java.util.List;
 import java.util.Objects;
 
 public class LottoResult {
-    private HashMap<Integer, Integer> countOfRank;
+    private HashMap<Rank, Integer> countOfRank;
     private int rewardMoney;
     private double rateOfReturn;    // 수익률
 
     public LottoResult(LottoTicket lottoTicket, LottoGame lottoGame) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashMap<Rank, Integer> map = new HashMap<>();
         for (LottoNumbers lottoNumbers : lottoTicket.getTicket()) {
-            int countOfMatchNumber = calculateRank(lottoNumbers, lottoGame.getWinNumber(), lottoGame.getBonusNumber()).getCountOfMatch();
-            map.put(countOfMatchNumber, map.getOrDefault(countOfMatchNumber, 0) + 1);
+            Rank rank = calculateRank(lottoNumbers, lottoGame.getWinNumber(), lottoGame.getBonusNumber());
+            map.put(rank, map.getOrDefault(rank, 0) + 1);
         }
         this.countOfRank = map;
     }
 
-    public HashMap<Integer, Integer> getCountOfRank() {
+    public HashMap<Rank, Integer> getCountOfRank() {
         return countOfRank;
     }
 
@@ -42,6 +42,9 @@ public class LottoResult {
             }
         }
         return Rank.valueOf(countOfMatch, matchBonus);
+    }
+    public void printResult() {
+
     }
 
     @Override

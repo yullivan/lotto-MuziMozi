@@ -14,6 +14,9 @@ public class LottoApplication {
 		LottoNumber bonusNumber = lottoMachine.saveBonusNumber();
 
 		LottoGame lottoGame = new LottoGame(winNumber, bonusNumber);
-		System.out.println(lottoGame);
+
+		LottoResult lottoResult = new LottoResult(lottoTicket, lottoGame);
+
+		System.out.println(lottoResult.getCountOfRank().toString());
 	}
 }
